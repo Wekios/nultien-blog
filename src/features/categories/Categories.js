@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 import { selectAllCategories } from "./categoriesSlice";
+import { Anchor } from "../../components/Anchor";
 
 export function Categories({ className }) {
   const categories = useSelector(selectAllCategories);
@@ -12,7 +13,9 @@ export function Categories({ className }) {
       <ul>
         {categories.map(({ id, name }) => (
           <li key={id}>
-            name: {name} / id: {id}
+            <Anchor className="text-black" href="#">
+              {name}
+            </Anchor>
           </li>
         ))}
       </ul>

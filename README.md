@@ -1,5 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
 
+It felt redundant writing complex logic for notifications, and also it wasn't specified in the task, so I've just added a notification when you add a new post.
+
 ## Available Scripts
 
 In the project directory, you can run:

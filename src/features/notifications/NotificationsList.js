@@ -13,13 +13,17 @@ export function NotificationsList({ className }) {
   return (
     <article className={className}>
       <header className="flex justify-between items-center">
-        <h4 className="text-xl">Your notifications:</h4>
-        <Button onClick={() => dispatch(removeAll())}>X</Button>
+        <h3 className="text-xl">Your notifications:</h3>
+        <Button onClick={() => dispatch(removeAll())}>
+          <span role="img" aria-label="close">
+            ❌
+          </span>
+        </Button>
       </header>
       <ul>
         {notifications.map(({ id, text }) => (
           <li key={id}>
-            <h3 className="font-bold">{text}</h3>
+            <h5 className="font-bold">{text}</h5>
           </li>
         ))}
       </ul>

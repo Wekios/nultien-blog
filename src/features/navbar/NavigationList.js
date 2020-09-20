@@ -47,7 +47,9 @@ export function NavigationList({ className, type, menuOpen }) {
     <ul className={className}>
       {NavLinks.map(({ name, href }) => (
         <li key={name} className={itemClassName}>
-          <Anchor href={href}>{name}</Anchor>
+          <Anchor className="text-white" href={href}>
+            {name}
+          </Anchor>
         </li>
       ))}
     </ul>

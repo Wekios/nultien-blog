@@ -5,6 +5,9 @@ import App from "./App";
 import store from "./app/store";
 import { Provider } from "react-redux";
 import * as serviceWorker from "./serviceWorker";
+import { fetchCategories } from "./features/categories/categoriesSlice";
+
+store.dispatch(fetchCategories());
 
 ReactDOM.render(
   <React.StrictMode>

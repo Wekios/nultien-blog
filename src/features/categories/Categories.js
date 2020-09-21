@@ -18,6 +18,10 @@ export function Categories({ className }) {
     dispatch(fetchPosts());
   };
 
+  if (!categories.length) {
+    return null;
+  }
+
   return (
     <aside className={className}>
       <h2 className="text-xl">Categories:</h2>

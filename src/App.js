@@ -18,7 +18,7 @@ function App() {
         </div>
       </Container>
       <Container className="flex flex-wrap">
-        <Categories className="w-full md:w-1/4 md:mr-4 bg-white pt-2 px-3 shadow-lg" />
+        <Categories className="w-full md:w-1/4 md:mr-4 bg-white p-4 px-3 shadow-lg" />
         <PostsList className="flex-1" />
       </Container>
     </div>

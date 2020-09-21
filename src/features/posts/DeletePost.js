@@ -25,8 +25,8 @@ export function DeletePost({ postId, className }) {
         Delete Post
       </Button>
       {showModal && (
-        <Modal className="fixed inset-0 flex items-center justify-center">
-          <div className="bg-white w-full md:w-1/2 mx-4 border border-black p-5">
+        <Modal>
+          <div className="bg-white w-full md:w-1/2 lg:w-1/4 mx-4 border border-black p-5">
             <h3 className="text-center pb-4">Are you sure? This action can't be reverted</h3>
             <div className="flex">
               <Button className="block mx-auto my-2" theme="danger" onClick={handlePostDeletion}>

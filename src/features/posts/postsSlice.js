@@ -27,6 +27,16 @@ export const removePost = createAsyncThunk("posts/removePost", async ({ id }) =>
   if (response.status === 204) return id;
 });
 
+export const searchForPost = createAsyncThunk("posts/searchForPost", async (term) => {
+  let response;
+  if (term.length > 0) {
+    response = await clientApi.searchForBlogPost(term);
+  } else {
+    response = await clientApi.getBlogPosts(term);
+  }
+  return response.data.resultData;
+});
+
 const postsSlice = createSlice({
   name: "posts",
   initialState,
@@ -56,6 +66,9 @@ const postsSlice = createSlice({
     },
     [removePost.fulfilled]: (state, action) => {
       state.posts = state.posts.filter((post) => post.id !== action.payload);
+    },
+    [searchForPost.fulfilled]: (state, action) => {
+      state.posts = action.payload;
     },
   },
 });

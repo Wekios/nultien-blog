@@ -24,7 +24,7 @@ export function EditPost({ postId, className }) {
         Edit Post
       </Button>
       {showModal && (
-        <Modal className="fixed inset-0 flex items-center justify-center">
+        <Modal>
           <PostForm
             onSubmit={handlePostEdit}
             {...post}

@@ -7,7 +7,7 @@ import { DeletePost } from "./DeletePost";
 
 export function Post({ id, title, createdAt, text }) {
   return (
-    <article className="px-4 py-2 mb-4 bg-white border border-gray-400">
+    <article className="px-4 py-2 mb-4 bg-white border border-gray-400 shadow-lg">
       <section className="flex flex-col sm:flex-row items-center">
         <div className="w-20 mr-2">
           <Image size={80} />

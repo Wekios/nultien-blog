@@ -31,7 +31,7 @@ export function AddPost({ className }) {
         Add Post
       </Button>
       {showModal && (
-        <Modal className="fixed inset-0 flex items-center justify-center">
+        <Modal>
           <PostForm
             heading="Add a New Post"
             onSubmit={handlePostAddition}

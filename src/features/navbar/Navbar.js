@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Burger } from "./Burger";
 import { NavigationList } from "./NavigationList";
 import { Container } from "../../components/Container";
-import { SearchInput } from "../../components/SearchInput";
+import { Search } from "../../features/search/Search";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,7 +15,7 @@ export function Navbar() {
       <Container className="flex items-center justify-between py-4">
         <h1 className="text-white">My Blog</h1>
         <nav className="flex items-center">
-          <SearchInput className="mr-4" />
+          <Search className="mr-4" />
 
           {/* Desktop */}
           <NavigationList type="desktop" />

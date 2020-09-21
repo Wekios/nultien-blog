@@ -5,6 +5,9 @@ module.exports = {
       maxWidth: {
         container: "1140px",
       },
+      colors: {
+        modal: "#00000080",
+      },
     },
   },
   variants: {},

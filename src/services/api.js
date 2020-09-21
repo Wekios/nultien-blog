@@ -19,7 +19,8 @@ clientApi.deleteCategory = (id) => axios.delete(`${CATEGORY_URL}/${id}`);
 
 // * Blog
 clientApi.getBlogPosts = () => axios.get(BLOG_POST_URL);
-clientApi.postBlogPost = (data) => axios.post(BLOG_POST_URL, data);
+clientApi.addBlogPost = (data) => axios.post(BLOG_POST_URL, data);
+clientApi.editBlogPost = (id, data) => axios.put(`${BLOG_POST_URL}/${id}`, data);
 clientApi.deleteBlogPost = (id) => axios.delete(`${BLOG_POST_URL}/${id}`);
 
 export { clientApi };

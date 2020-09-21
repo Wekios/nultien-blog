@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { postUpdated, selectPostById } from "./postsSlice";
+import { editPost, selectPostById } from "./postsSlice";
 import { Button } from "../../components/Button";
 import { Modal } from "../../components/Modal";
 import { PostForm } from "./PostForm";
@@ -14,7 +14,7 @@ export function EditPost({ postId, className }) {
   const dispatch = useDispatch();
 
   const handlePostEdit = (fields) => {
-    dispatch(postUpdated({ id: postId, ...fields }));
+    dispatch(editPost({ id: postId, ...fields }));
     setShowModal(false);
   };
 

@@ -13,8 +13,13 @@ export const fetchPosts = createAsyncThunk("posts/fetchPosts", async () => {
 });
 
 export const addNewPost = createAsyncThunk("posts/addNewPost", async (post) => {
-  const response = await clientApi.postBlogPost(post);
+  const response = await clientApi.addBlogPost(post);
   return response.data;
+});
+
+export const editPost = createAsyncThunk("posts/editPost", async (post) => {
+  clientApi.editBlogPost(post.id, post);
+  return post;
 });
 
 export const removePost = createAsyncThunk("posts/removePost", async ({ id }) => {
@@ -25,17 +30,6 @@ export const removePost = createAsyncThunk("posts/removePost", async ({ id }) =>
 const postsSlice = createSlice({
   name: "posts",
   initialState,
-  reducers: {
-    // Move this to api
-    postUpdated(state, action) {
-      const { id, title, content } = action.payload;
-      const existingPost = state.posts.find((post) => post.id === id);
-      if (existingPost) {
-        existingPost.title = title;
-        existingPost.content = content;
-      }
-    },
-  },
   extraReducers: {
     [fetchPosts.pending]: (state, _action) => {
       state.status = "loading";
@@ -50,6 +44,15 @@ const postsSlice = createSlice({
     },
     [addNewPost.fulfilled]: (state, action) => {
       state.posts.push(action.payload);
+    },
+    [editPost.fulfilled]: (state, action) => {
+      console.log(action);
+      const { id, title, text } = action.payload;
+      const existingPost = state.posts.find((post) => post.id === id);
+      if (existingPost) {
+        existingPost.title = title;
+        existingPost.text = text;
+      }
     },
     [removePost.fulfilled]: (state, action) => {
       state.posts = state.posts.filter((post) => post.id !== action.payload);

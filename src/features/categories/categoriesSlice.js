@@ -1,12 +1,12 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import clientApi from "../../services/api";
+import { clientApi } from "../../services/api";
 
 const initialState = [];
 
 export const fetchCategories = createAsyncThunk("categories/fetchCategories", async () => {
   const response = await clientApi.getCategories();
   // ? A little bit dirty and this can be avoided if we allow author to input a new category
-  if (response.data.resultData.length < 3) {
+  if (!response.data.resultData.length) {
     const newCategories = await clientApi.seedCategories();
     newCategories.forEach((cat) => response.data.resultData.push(cat.data));
   }

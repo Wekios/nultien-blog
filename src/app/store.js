@@ -1,10 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
-import notificationsReducer from "../features/notifications/notificationsSlice";
+import postReducer from "../features/posts/postsSlice";
 import categoriesReducer from "../features/categories/categoriesSlice";
+import notificationsReducer from "../features/notifications/notificationsSlice";
 
 export default configureStore({
   reducer: {
-    notifications: notificationsReducer,
+    posts: postReducer,
     categories: categoriesReducer,
+    notifications: notificationsReducer,
   },
 });

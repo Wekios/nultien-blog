@@ -62,7 +62,6 @@ const postsSlice = createSlice({
       state.posts.push(action.payload);
     },
     [editPost.fulfilled]: (state, action) => {
-      console.log(action);
       const { id, title, text } = action.payload;
       const existingPost = state.posts.find((post) => post.id === id);
       if (existingPost) {

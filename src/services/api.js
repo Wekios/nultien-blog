@@ -23,5 +23,7 @@ clientApi.addBlogPost = (data) => axios.post(BLOG_POST_URL, data);
 clientApi.editBlogPost = (id, data) => axios.put(`${BLOG_POST_URL}/${id}`, data);
 clientApi.deleteBlogPost = (id) => axios.delete(`${BLOG_POST_URL}/${id}`);
 clientApi.searchForBlogPost = (term) => axios.get(`${BLOG_POST_URL}/Search/?term=${term}`);
+clientApi.getBlogPostsByCategory = (id) =>
+  axios.get(`${BLOG_POST_URL}/GetPostByCategory?categoryId=${id}`);
 
 export { clientApi };

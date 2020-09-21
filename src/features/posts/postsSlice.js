@@ -5,6 +5,7 @@ const initialState = {
   posts: [],
   status: "idle",
   error: null,
+  activeCategory: "",
 };
 
 export const fetchPosts = createAsyncThunk("posts/fetchPosts", async () => {
@@ -32,8 +33,13 @@ export const searchForPost = createAsyncThunk("posts/searchForPost", async (term
   if (term.length > 0) {
     response = await clientApi.searchForBlogPost(term);
   } else {
-    response = await clientApi.getBlogPosts(term);
+    response = await clientApi.getBlogPosts();
   }
+  return response.data.resultData;
+});
+
+export const getPostByCategory = createAsyncThunk("posts/getPostByCategory", async (id) => {
+  const response = await clientApi.getBlogPostsByCategory(id);
   return response.data.resultData;
 });
 
@@ -46,7 +52,7 @@ const postsSlice = createSlice({
     },
     [fetchPosts.fulfilled]: (state, action) => {
       state.status = "succeeded";
-      state.posts = state.posts.concat(action.payload);
+      state.posts = action.payload;
     },
     [fetchPosts.rejected]: (state, action) => {
       state.status = "failed";
@@ -68,6 +74,9 @@ const postsSlice = createSlice({
       state.posts = state.posts.filter((post) => post.id !== action.payload);
     },
     [searchForPost.fulfilled]: (state, action) => {
+      state.posts = action.payload;
+    },
+    [getPostByCategory.fulfilled]: (state, action) => {
       state.posts = action.payload;
     },
   },

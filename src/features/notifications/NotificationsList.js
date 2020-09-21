@@ -13,7 +13,7 @@ export function NotificationsList({ className }) {
   return (
     <article className={className}>
       <header className="flex justify-between items-center">
-        <h3 className="text-xl">Your notifications:</h3>
+        <h2 className="text-xl">Your notifications:</h2>
         <Button onClick={() => dispatch(removeAll())}>
           <span role="img" aria-label="close">
             ❌
@@ -23,7 +23,7 @@ export function NotificationsList({ className }) {
       <ul>
         {notifications.map(({ id, text }) => (
           <li key={id}>
-            <h5 className="font-bold">{text}</h5>
+            <h3 className="font-bold">{text}</h3>
           </li>
         ))}
       </ul>

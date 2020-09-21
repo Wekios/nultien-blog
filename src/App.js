@@ -9,7 +9,7 @@ import { Container } from "./components/Container";
 
 function App() {
   return (
-    <div className="h-screen bg-gray-100">
+    <div className="min-h-screen bg-gray-100">
       <Navbar />
       <Container className="py-4">
         <div className="md:w-3/4 md:pl-4 md:ml-auto">

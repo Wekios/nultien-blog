@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 
+import { selectAllCategories } from "../categories/categoriesSlice";
 import { Button } from "../../components/Button";
 
 export const PostForm = ({
@@ -15,7 +16,7 @@ export const PostForm = ({
   const [text, setText] = useState(initialContent);
   const [categoryId, setCategoryId] = useState(initialCategoryId);
 
-  const categories = useSelector((state) => state.categories);
+  const categories = useSelector(selectAllCategories);
 
   const categoryOptions = categories.map(({ id, name }) => (
     <option key={id} value={id}>
@@ -79,8 +80,12 @@ export const PostForm = ({
         </select>
       </div>
       <div className="flex justify-around py-2">
-        <Button type="submit">Save Post</Button>
-        <Button onClick={onCancel}>Cancel</Button>
+        <Button theme="primary" type="submit">
+          Save Post
+        </Button>
+        <Button theme="ghost" onClick={onCancel}>
+          Cancel
+        </Button>
       </div>
     </form>
   );

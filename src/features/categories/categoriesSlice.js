@@ -16,7 +16,6 @@ export const fetchCategories = createAsyncThunk("categories/fetchCategories", as
 const categoriesSlice = createSlice({
   name: "categories",
   initialState,
-  reducers: {},
   extraReducers: {
     [fetchCategories.fulfilled]: (_state, action) => {
       return action.payload;

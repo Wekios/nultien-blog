@@ -11,7 +11,6 @@ export function DeletePost({ postId, className }) {
   const dispatch = useDispatch();
 
   const handlePostDeletion = async () => {
-    console.log(postId);
     try {
       dispatch(removePost({ id: postId }));
     } catch (err) {

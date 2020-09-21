@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import { selectAllPosts, fetchPosts } from "./postsSlice";
 import { Post } from "./Post";
+import { Spinner } from "../../components/Spinner";
 
 export function PostsList({ className }) {
   const dispatch = useDispatch();
@@ -20,7 +21,7 @@ export function PostsList({ className }) {
   let content;
 
   if (postStatus === "loading") {
-    content = <div>Loading...</div>;
+    content = <Spinner className="mx-auto mt-8" />;
   } else if (postStatus === "succeeded") {
     const orderedPosts = posts.slice().sort((a, b) => b.createdAt.localeCompare(a.date));
     content = orderedPosts.map((post) => <Post key={post.id} {...post} />);
